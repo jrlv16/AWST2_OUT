@@ -1,0 +1,46 @@
+{% extends "base_fixe.html" %}
+{% load static %}
+
+{% block title %}
+Liste entraineurs
+{% endblock title %}
+
+{% block sidenav %}
+    <li class="nav-item">
+            <a class="nav-link" href="/"> Footexperts </a>
+        </li>
+{% endblock sidenav %}
+
+
+
+{% block formulaire %}
+<div class="bgimg-4">
+    <div class="caption">
+        {% if user.is_staff %}
+        <h1>Liste des entraineurs:</h1>
+        <div>
+            {% if personnel_list %}
+            <ul>
+                {% for pers in personnel_list %}
+                    {% if  pers.catu == 'ENTR' %}
+                    <li>
+                        <P> {{ pers.catu }}</p>
+                        <a class="nav-item" href ="{{ pers.get_absolute_url }}"> {{ pers.last_name }}
+                        {{pers.first_name}}</a>
+                        <a href ="{% url "client_maj" client.id%} "><i class="fas fa-user-edit"></i></a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            {% else %}
+                <p> il n'y a pas d'entraineurs dans la base </p>
+            {% endif %}
+        <div>
+        {% else %}
+            <p class="caption warning"> Vous n'avez pas accès à la liste des entraineurs</p>
+        {% endif %}
+
+    </div>         
+</div>      
+{% endblock formulaire %}
+

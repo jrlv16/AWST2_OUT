@@ -1,0 +1,29 @@
+{% extends 'base_fixe.html' %}
+
+{% block sidenav %}
+    <li class="nav-item">
+            <a class="nav-link" href="/"> Footexperts </a>
+        </li>
+{% endblock sidenav %}
+
+{% block formulaire %}
+    <div class ="bgimg-4">
+        <div class="caption">
+        {% if user.is_staff%}
+            
+            <form action = "" method = "post" class="my_form">
+                {% csrf_token %}
+                
+                
+                <table>
+                   
+                    {{ form.as_table}}
+                </table>
+                <input type ="submit" value= "Enregistrer">
+            </form>
+        {% else %}
+            <p class="caption">Vous n'avez pas acccès à cette page, elle est réservée aux administrateurs</p>
+        {% endif %}        
+        </div>            
+    </div>
+{% endblock formulaire %}

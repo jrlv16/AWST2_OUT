@@ -1,0 +1,65 @@
+{% extends "base_fixe.html" %}
+{% load static %}
+
+{% block title %}
+Liste clients
+{% endblock title %}
+
+{% block sidenav %}
+    <li class="nav-item">
+            <a class="nav-link" href="/"> Footexperts </a>
+        </li>
+{% endblock sidenav %}
+
+
+
+{% block formulaire %}
+<div class="bgimg-4">
+    <div class="caption">
+        {% if user.is_staff %}
+        <h1>Liste clients:</h1>
+        <div>
+            {% if client_list %}
+                <form class="form-group center" action="" method="GET">
+                            {{ form }}
+                        <button class="btn" type="submit">Search</button>
+                </form>
+                
+                <ul>
+                    {% for client in client_list %}
+                        {% if user.catu == 'ADMI' %}
+                            <li>
+                                <a class="nav-item"  href ="{{ client.get_absolute_url }}" >
+                                {{ client.last_name }} {{client.first_name}}</a>   {{ client.catu }}
+                                <a href ="{% url "client_maj" client.id%} "><i class="fas fa-user-edit"></i></a>
+                            </li>
+
+                        {% elif user.catu == 'ENTR' %}
+                        
+                            {% if client.catu == 'FOOT' %}
+                                <li>
+                                    {{ client.last_name }} {{client.first_name}} {{ client.id}}
+                                    <a href ="{% url "suivobs_creation" client.id %}">
+                                     Saisie suivi</a>
+                                    <a href = "{% url "listsuivient" client.id %}">Tous les suivis</a>         
+                                </li>
+                            {% endif %}
+
+                        {% endif %}
+                    
+                    
+                    {% endfor %}
+                </ul>    
+    
+            {% else %}
+                <p> il n'y a pas de clients dans la base </p>
+            {% endif %}
+            </div>
+        {% else %}
+            <p class="caption warning"> Vous n'avez pas accès à la liste des clients</p>
+        {% endif %}
+
+    </div>         
+</div>      
+{% endblock formulaire %}
+

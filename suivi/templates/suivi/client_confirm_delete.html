@@ -1,0 +1,24 @@
+{% extends 'base_fixe.html' %}
+
+{% block sidenav %}
+    <li class="nav-item">
+            <a class="nav-link" href="/"> Footexperts </a>
+        </li>
+{% endblock sidenav %}
+
+{% block formulaire %}
+    <div class="caption">
+    {% if user.is_staff %}
+        <h1>Suppression Client</h1>
+        {% comment '' %}
+        TODO: Afficher le nom du client à supprimer dans la phrase en-dessous
+        {% endcomment %}
+        <p>Etes-vous de vouloir supprimer le client: {{ client.last_name }} {{ client.first_name }}?</p>
+        <p>Attention cette action est irréversible </p>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type= "submit" value ="Oui, effacer ce client">
+        </form>
+    {% endif %}    
+    </div>
+{% endblock formulaire %}

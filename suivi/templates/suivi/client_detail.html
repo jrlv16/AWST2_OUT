@@ -1,0 +1,75 @@
+{% extends "base_fixe.html" %}
+{% load static %}
+
+{% block title %}
+    {{ user.first_name }} {{user.last_name}}
+{% endblock title %}
+
+{% block sidenav %}
+    <li class="nav-item">
+        <a class="nav-link" href="/"> Footexperts </a>
+    </li>
+{% endblock sidenav %}
+
+
+{% block formulaire %}
+    <div class="bgimg-4">
+        <div class="caption">
+            <div>
+                <h1>Client: {{ client.last_name }} {{ client.first_name }} </h1>
+                 {% if  user.is_staff%}
+                        {% if client.id == user.id%}
+                            <a href ="{% url "clientclient_maj" client.id%} "><i class="fas fa-user-edit"></i></a>
+                        {% else %}
+                            <a href ="{% url "client_maj" client.id%} "><i class="fas fa-user-edit"></i></a>
+                        {% endif %}
+
+                        {% if user.catu == ADMI %}
+                        <a href ="{% url "client_del" client.id%} "><i class="far fa-trash-alt"></i></a>
+                        {% endif %}
+                        
+                {% else %}
+                         <a cla="nav-item" href ="{% url 'clientclient_maj' user.id%} "><i class="fas fa-user-edit"></i></a>
+                {% endif %}
+                <br/>
+                <table class="table table-bordered my_form">
+                    <th>Coordonnées:</th>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Date de naissance:</th> <td>{{ client.naissance }}</td>
+                        </tr>
+                        <tr>    
+                            <th scope="row">Adresse:</th> <td>{{ client.adresse }} {{ client.codepos }}  {{ client.ville }}</td>
+                        </tr>
+                        </tr>
+                        <th scope="row">Téléphone:</th> <td>{{ client.telephone }}</td>
+                        <tr>
+                        <tr>
+                            <th scope="row">Email:</th> <td>{{ client.email }}</td> 
+                        </tr>
+                        <tr>
+                            <th scope="row">Catégorie de client:</th> <td> {{ client.typ }}</td> 
+                        </tr>
+                        <th scope="row">Téléphone:</th> <td>{{ client.telephone }}</td>
+                        <tr>  
+                    </tbody>
+                </table>
+                <table class="table table-bordered my_form">
+                    <th>Sport:</th>
+                    <tbody>
+                    
+                        <tr>
+                        <th scope="row">Section:</th> <td>{{ client.sec }}</td> <th scope="row">Division:</th> <td>{{ client.division }} </td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Poste:</th> <td>{{ client.pos }} </td><th scope="row">Pied faible:</th> <td>{{ client.pied }} </td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Club:</th> <td>{{ client.club }} </td><th scope="row">Ville:</th> <td>{{ client.club_ville }}</td>
+                        </tr>
+                        
+                </table>
+            </div>    
+        </div>    
+    </div>
+{% endblock formulaire %}

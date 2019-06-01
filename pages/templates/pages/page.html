@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  {{title}}         
+{% endblock title %}
+
+{% block sidenav %}
+    {% for page in page_list %}
+        <li class="nav-item">
+            <a class="nav-link" href=" {{ page.permalink }} "> {{ page.title }} </a>
+        </li>
+    {% endfor %}
+{% endblock sidenav %} 
+
+{% block body %}
+<div class="bgimg-1">
+
+        <div class="caption">
+        {% block content %}
+        {% autoescape off %}
+            {{ content }}  <!--ajoute le contenu de chaque page créée dans l'admin -->
+        {% endautoescape %}
+        {% endblock content %}
+        </div>
+</div> 
+
+           
+
+<div class="row">
+                <div class="col-md-3" style="padding:15px;">
+                    <div class="offres">
+                        <div>
+                            <img class="img-fluid" alt="eCommerce Product List" src="" />
+                            <br />
+                            
+                            <h2><a class="nav-link" href="#">Selection du mois</a></h2>
+                        </div>
+                        <p>Sélection thématique des livres bons pour le moral pour bien commencer l'année</p>
+                    </div>
+                </div>
+                <div class="col-md-3" style="padding:15px;">
+                        <div class="offres">
+                            <div>
+                                <img class="img-fluid" alt="eCommerce Product List" src="assets/img/books-985954_1920.jpg" />
+                                <br />
+                                
+                                <h2><a class="nav-link" href="#">Conseil de libraires</a></h2>
+                            </div>
+                            <p>Nous prônons un nouveau mode de ditribution alternatif aux circuit traditionnels</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="padding:15px;">
+                            <div class="offres">
+                                <div>
+                                    <img class="img-fluid" alt="eCommerce Product List" src="assets/img/library-1666703_1920.jpg" />
+                                    <br />
+                                    
+                                    <h2><a class="nav-link" href="#">Nouveautés e-books</a></h2>
+                                </div>
+                            <p>Les dernières nouveautés e-book sur tous les sujets</p>    
+                            </div>
+                        </div>
+            </div>
+
+<div class="bgimg-2">
+        <div class="caption">
+        <!-- <span class="border"></span> -->
+        </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,29 @@
+{% extends "base_fixe.html" %}
+{% block sidenav %}
+    <li class="nav-item">
+            <a class="nav-link" href="/"> Footexperts </a>
+        </li>
+{% endblock sidenav %}
+
+{% block formulaire %}
+    <div class="bgimg-4">
+      <div class="caption-contact-list">
+        <p>{{ user.first_name }} {{ user.last_name }} Liste de suivi:</p>
+
+
+        {% if suivobslist %}
+        <ul>
+
+          {% for s in suivobslist %} 
+          <li>
+            <a href ="{% url 'suivi_detail' s.id %}">{{s.suivobs_date}}</a> {{ s.typsuivi }} {{s.joueur}}        
+          </li>
+          {% endfor %}
+        </ul>
+        {% include "pagination.html" with pages=suivobss %}
+        {% else %}
+          <p>Vous n'avez pas encore fait l'objet de suivi par nos coaches.</p>
+        {% endif %}       
+      </div>
+    </div>
+{% endblock %}

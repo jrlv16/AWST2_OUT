@@ -1,0 +1,232 @@
+/* IMPORT POLICE */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/* ON L'APPLIQUE A TOUTE LA PAGE */
+html{
+    height: 100%;
+}
+body {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.2em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    }
+
+#topbanner {
+    max-height: 7%;
+    
+}
+
+.jumbotron {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.navbar-expand-md {
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-nav {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    
+}
+
+.iconne{
+    display: none;
+    
+}
+.iconne, .enlettre {
+    color: #989ba0;
+    
+}
+
+a.enlettre:hover, a.iconne:hover {
+    text-decoration: none;
+    color:#bcc0c8;
+    
+}
+
+.contact {
+    margin: auto;
+}
+
+.my_form {
+    max-width: 70%;
+    margin: auto;
+}
+
+/**********************************/
+/******** Bloc 3 images ***********/
+/**********************************/
+
+.row {
+    margin: auto;
+    display:-webkit-inline-box;
+    display:-ms-inline-flexbox;
+    display:inline-flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    background-color: #f45201;
+    width:100%;
+    padding:10px;
+}
+
+.offres {
+    text-align: center
+}
+
+/**********************************/
+/******** FIN Bloc 3 images *******/
+/**********************************/
+
+
+/**********************************/
+/******** Pour Footer *************/
+/**********************************/
+
+
+.blockpost{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding:0 1% 0 1%;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+.fa-facebook {
+color:var(--colortext);
+}
+
+.fa-twitter {
+color:var(--colortext);
+}
+
+.fa-google {
+color:var(--colortext);
+}
+
+.fa-linkedin {
+color:var(--colortext);
+}
+
+.fa-youtube {
+color:var(--colortext);
+}
+
+.fa-instagram {
+color:var(--colortext);
+}
+
+p.real {
+    font-size: 0.7em;
+}
+
+
+/**********************************/
+/********** Fin Footer ************/
+/**********************************/
+
+
+/******************/
+/* Pour Parallaxe */
+/******************/
+
+.bgimg-1, .bgimg-2, .bgimg-3, {
+    position: relative;
+    opacity: 0.65;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.bgimg-1 {
+    background-image: url("bgimg-1.jpg");
+    min-height: 100%;
+}
+
+.bgimg-4 {
+    background-color: rgba(96, 201, 75, 0.884);
+        
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+}
+
+.caption-contact {
+    position: absolute;
+    left: 0;
+    top: calc(100vw/4.5);
+    width: 100%;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+}
+
+
+/******************/
+/* Fin Parallaxe */
+/******************/
+
+/**************************************/
+/******** Media Queries ***************/
+/**************************************/
+
+@media (max-width: 767px) {
+   
+    .blockpost{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        text-align: center;
+    }
+
+    .enlettre{
+        display: none;
+    }
+    .iconne{
+        display: block;
+    }
+
+    .my_form {
+        max-width: none;
+        margin: auto;
+    }
+
+}
+
+/**************************************/
+/******* Fin Media Queries ************/
+/**************************************/
