@@ -9,26 +9,27 @@
 
 {% block formulaire%} 
 <div class="bgimg-1">
-    <div class="caption-contact"
-    <h1> Contactez nous: </h1>
-    {% if submitted %}
-    <p class="success">
-     Votre message a été envoyé avec succès, merci</p>
+    <div class="caption-contact">
+        
+            <h2> Contactez nous: </h2>
+            {% if submitted %}
+            <p class="success">
+            Votre message a été envoyé avec succès, merci</p>
 
 
-    {% else %}
-
- <form action="" method="post" novalidate>
- <table class="contact">
- {{ form.as_table }}
- <tr>
- <td>&nbsp;</td>
- <td><input type="submit" value="Envoyer"></td>
- </tr>
- </table>
- {% csrf_token %}
-</form>
- {% endif %}
+            {% else %}
+                <div class="contact"
+                <form action="" method="post" novalidate>
+                    
+                    {{ form.as_table }}
+                    {% csrf_token %}
+                </form>
+                </div>
+                <input type="submit" value="Envoyer" class="envoy">
+                    
+                
+            {% endif %}
+        
     </div>
 </div>
  {% endblock formulaire %}

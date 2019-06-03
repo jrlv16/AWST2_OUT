@@ -64,8 +64,13 @@ a.enlettre:hover, a.iconne:hover {
 
 .contact {
     margin: auto;
+    display: inline-grid;
 }
 
+.envoy {
+    margin: auto;
+    display: block;
+}
 .my_form {
     max-width: 70%;
     margin: auto;
@@ -252,6 +257,17 @@ p.real {
     }
     .form_log {
         margin-top: 15%;
+    }
+    #id_message {
+        
+        height:40%;
+        
+    }
+    .envoy {
+        position: relative;
+        margin: auto;
+        display: block;
+        top: -7em;
     }
 }
 
