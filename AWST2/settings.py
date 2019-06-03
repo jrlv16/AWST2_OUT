@@ -155,3 +155,17 @@ else:
 
 LOGIN_REDIRECT_URL = '/'   
 LOGOUT_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# pour autoriser l'envoi de mail activer:
+# https:/ / myaccount. google. com/ lesssecureapps
+# puis compléter ci-desssous et décommenter
+
+"""
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'my-account@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+"""

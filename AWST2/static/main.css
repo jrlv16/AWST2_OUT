@@ -75,6 +75,10 @@ a.enlettre:hover, a.iconne:hover {
     width: 45%;
     margin: auto;
 }
+
+.form_log {
+    display: inline-block;
+}
 /**********************************/
 /******** Bloc 3 images ***********/
 /**********************************/
@@ -245,6 +249,9 @@ p.real {
 
     .form-group {
         width: 70%;
+    }
+    .form_log {
+        margin-top: 15%;
     }
 }
 
