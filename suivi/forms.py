@@ -55,7 +55,8 @@ class ClientClientChangeForm(UserChangeForm):
         fields = ('username', 'first_name', 'last_name',
          'email', 'naissance', 'adresse', 'codepos',
          'ville', 'telephone', 'club', 'club_ville', 'pos', 'sec',
-          'division') 
+          'division')
+           
 
 class EntraineurCreationForm(UserCreationForm):
 
