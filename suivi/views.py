@@ -3,12 +3,13 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views import generic, View
 from django.views.generic.detail import DetailView, SingleObjectMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import PasswordResetForm
 from django.urls import reverse_lazy
 from django.contrib.admin.views.decorators import staff_member_required
 from search_views.search import SearchListView
@@ -151,7 +152,19 @@ class SuiviByClientEntrListView(LoginRequiredMixin, generic.ListView):
         # self.clientid = Client.id
         return Suivobs.objects.filter(joueur = self.kwargs.get('pk'))
     
-    
+class MyPasswordReset(FormView):
+    email_template_name='templates/registration/password_reset_email.html'
+    form_class= PasswordResetForm
+    from_email = 'foot@footexperts.fr'
+    success_url = 'password_reset_done.html'
+    template_name = 'password_reset_form.html'
+
+
+           
+
+
+
+
 """    
     context_object_name = "suivobss"
     queryset = Suivobs.objects.all()
