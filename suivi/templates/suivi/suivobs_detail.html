@@ -9,13 +9,27 @@
 {% block formulaire %}
     <div class ="bgimg-4">
         <div class="caption">
-        <p> page de détail de suivi: </p>
-        <h2>{{ object.joueur }}</h2>
-        <table>
-        <p> DATE: {{ object.suivobs_date }} COACH: {{ object.coach }} </p>
-        <p> THEME: {{object.suivobs_theme}}</p>
-        <p> OBSERVATIONS: {{object.suivobs_observation}}</p>
-
+        <h2>{{ object.joueur }} détail de suivi: </h2>
+        <table class='table table-bordered my_form'>
+        <tr>
+        <th scope='row'> DATE: </th><td> {{ object.suivobs_date }}</td>
+        </tr>
+        <tr>
+        <th> COACH: </th><td>{{ object.coach }} </td>
+        </tr>
+        <tr>
+        <th scope='row'> THEME: </th><td>{{object.suivobs_theme}}</td>
+        </tr>
+        <tr>
+        <th scope='row'> TRAVAIL: </th><td>{{object.suivobs_travail}}</td>
+        </tr>
+        <tr>
+        <th scope='row'>  OBSERVATIONS: </th><td>{{object.suivobs_observation}}</td>
+        </tr>
+        <tr>
+        <th scope='row'>  AXE DE PROGRES: </th><td>{{object.suivobs_axeprogres}}</td>
+        </tr>
+        </table>
         {% if user.is_staff%}
             <a href="{% url 'suivobs_creation' object.joueur.id %}">Nouveau Suivi</a>
         
