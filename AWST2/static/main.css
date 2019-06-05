@@ -88,6 +88,19 @@ a.enlettre:hover, a.iconne:hover {
 .vid_box{
     text-align: center;
 }
+
+#card {
+    width: 100%;
+}
+
+.block_part{
+
+}
+
+.band_part {
+    display: flex;
+    
+}
 /**********************************/
 /******** Bloc 3 images ***********/
 /**********************************/
@@ -192,8 +205,18 @@ p.real {
 
 .bgimg-1 {
     background-image: url("bgimg-1.jpg");
-    min-height: 100%;
+    min-height: 120%;
 }
+
+.bgimg-2 {
+    background-image: url("stadium-2921657-1920-1.jpg");
+    min-height: 400px;
+  }
+
+  .bgimg-3 {
+    background-image: url("IMG_2466.JPG");
+    min-height: 720px;
+  }  
 
 .bgimg-4 {
     background-color: rgba(96, 201, 75, 0.884);
