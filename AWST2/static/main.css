@@ -77,7 +77,7 @@ a.enlettre:hover, a.iconne:hover {
 }
  
 .form-group {
-    width: 45%;
+    width: 40%;
     margin: auto;
 }
 
@@ -98,8 +98,11 @@ a.enlettre:hover, a.iconne:hover {
 }
 
 .band_part {
-    display: flex;
-    
+    display: flex;    
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    position: inherit;
 }
 /**********************************/
 /******** Bloc 3 images ***********/
@@ -279,9 +282,7 @@ p.real {
         top: 25%;
     }
 
-    .form-group {
-        width: 70%;
-    }
+    
     .form_log {
         margin-top: 15%;
     }

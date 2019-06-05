@@ -24,7 +24,8 @@ Liste clients
                             {{ form }}
                         <button class="btn" type="submit">Search</button>
                 </form>
-                
+                <p></span>&nbsp; &nbsp;
+                    <span class="retour"> <a href="{% url 'client_list' %}"><i class="fas fa-undo"></i></a></p>
                 <ul>
                     {% for client in client_list %}
                         {% if user.catu == 'ADMI' %}
@@ -38,7 +39,7 @@ Liste clients
                         
                             {% if client.catu == 'FOOT' %}
                                 <li>
-                                    {{ client.last_name }} {{client.first_name}} {{ client.id}}
+                                    {{ client.last_name }} {{client.first_name}} 
                                     <a href ="{% url "suivobs_creation" client.id %}">
                                      Saisie suivi</a>
                                     <a href = "{% url "listsuivient" client.id %}">Tous les suivis</a>         
@@ -50,7 +51,21 @@ Liste clients
                     
                     {% endfor %}
                 </ul>    
-    
+                {% if is_paginated %}
+                <div class="pagination">
+                <span class="page-links">
+                    {% if page_obj.has_previous %}
+                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+                    <span class="page-current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    {% if page_obj.has_next %}
+                        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+                </span>&nbsp; &nbsp;
+                  <span class="retour"> <a href="{% url 'client_list'%}"><i class="fas fa-undo"></i></a>        
+                {% endif %}
             {% else %}
                 <p> il n'y a pas de clients dans la base </p>
             {% endif %}

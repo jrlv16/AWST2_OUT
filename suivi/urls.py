@@ -22,12 +22,3 @@ urlpatterns =[
     path('suivi_tous', views.SuivobsList.as_view(), name ='tous_les_suivis'),
     path('client/password/',MyPasswordReset.as_view(), name='password'),
     ]
-
-"""
-    
-    path('personnel/<int:pk>', views.EntraineurDetailView.as_view(), name = 'entraineur_detail'),
-    
-    path('personnel/update/<int:pk>', views.EntraineurUpdate.as_view(), name = 'entraineur_maj'),
-    path('personnel/delete/<int:pk>', views.EntraineurDelete.as_view(), name = 'entraineur_del'),
-
-"""    
