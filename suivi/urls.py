@@ -1,6 +1,7 @@
-from django.contrib import admin
+from django.contrib import admin, auth
 from django.urls import path, include
 from django.conf.urls import url
+
 
 from . import views
 from . views import *
@@ -18,14 +19,6 @@ urlpatterns =[
     path('client/suivobs__ent_byclient_list/<int:pk>', views.SuiviByClientEntrListView.as_view(), name = 'listsuivient'),
     path('client/suivobs_detail/<int:pk>', views.SuivobsDetailView.as_view(), name='suivi_detail'),
     path('client/suivi_create/<int:pk>',views.SuivobsCreate.as_view() ,name='suivobs_creation'),
-    path('suivi_tous', views.SuivobsList.as_view(), name ='tous_les_suivis')
+    path('suivi_tous', views.SuivobsList.as_view(), name ='tous_les_suivis'),
+    path('client/password/',MyPasswordReset.as_view(), name='password'),
     ]
-
-"""
-    
-    path('personnel/<int:pk>', views.EntraineurDetailView.as_view(), name = 'entraineur_detail'),
-    
-    path('personnel/update/<int:pk>', views.EntraineurUpdate.as_view(), name = 'entraineur_maj'),
-    path('personnel/delete/<int:pk>', views.EntraineurDelete.as_view(), name = 'entraineur_del'),
-
-"""    

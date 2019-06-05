@@ -62,6 +62,7 @@
                                                 <ul class="dropdown-menu ">
                                                     <li class="nav-item"><a class="dropdown-item" href =" {% url 'client_creation' %} "> Création</a></li>
                                                     <li class="nav-item "><a class="dropdown-item" href =" {% url 'client_list' %} "> Liste Clients</a></li>
+                                                    <li class="nav-item"><a class="dropdown-item" href =" {% url 'tous_les_suivis'%}"> Suivi Clients</a></li>
                                             {% elif user.is_staff and user.catu == 'ENTR' %}
                                                 <li class="nav-item"><a class="nav-link" href =" {% url 'client_list' %} "> Liste Clients </a></li>
                                             {% else %}    

@@ -28,7 +28,7 @@ if 'RDS_HOSTNAME' in os.environ:
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['AWST12.k89qivspmv.eu-west-3.elasticbeanstalk.com', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -162,10 +162,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # https:/ / myaccount. google. com/ lesssecureapps
 # puis compléter ci-desssous et décommenter
 
-"""
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'my-account@gmail.com'
-EMAIL_HOST_PASSWORD = 'password'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+"""EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 1025
+EMAIL_USE_TLS = False
 """

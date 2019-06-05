@@ -3,12 +3,13 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views import generic, View
 from django.views.generic.detail import DetailView, SingleObjectMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import PasswordResetForm
 from django.urls import reverse_lazy
 from django.contrib.admin.views.decorators import staff_member_required
 from search_views.search import SearchListView
@@ -151,57 +152,13 @@ class SuiviByClientEntrListView(LoginRequiredMixin, generic.ListView):
         # self.clientid = Client.id
         return Suivobs.objects.filter(joueur = self.kwargs.get('pk'))
     
-    
-"""    
-    context_object_name = "suivobss"
-    queryset = Suivobs.objects.all()
-    # model = Suivobs
-    template_name ='suivi/suivobs_byclient_list.html' 
-    ordering = ('-suivobs_date')
-    paginate_by = 10 
-
-    def get(self, request, *args, **kwargs):
-        object_list = Suivobs.objects.all()
-        self.object = self.get_object()
-        context = self.get_context_data(object = self.object)
-        context['suiv'] = object_list.filter(user=request.user)
-        return context
-"""
-"""       
-def SuiviByClientListView(request, pk=None):
-    context_object_name = "suivobss"
-    object_list =  Suivobs.objects.all()
-    if pk:
-        object_list = Suivobs.objects.all().filter(joueur=pk)
-    else:
-        object_list = Suivobs.objects.all()
-
-    return render(object_list, 
-    'suivi/suivobs_byclient_list.html')
-"""        
-"""
-def suivi_list(request, id):
-    object_list = Suivobs.objects.all()
-    
-    if id:
-        object_list = object_list.filter(pk=id)
-    paginator = Paginator(object_list, 10)
-    page = request.GET.get('page')
-
-    try:
-        suivobss = paginator.page(page)
-    except PageNotAnInteger:
-        suivobss = paginator.page(1)        
-    except EmptyPage:
-        suivobss = paginator.page(paginator.num_pages)
-    return render(request,
-                  'suivi/suivobs_byclient_list.html',
-                  {'page': page,
-                  'suivobss': suivobss
-                  })        
-"""   
+class MyPasswordReset(FormView):
+    email_template_name='templates/registration/password_reset_email.html'
+    form_class= PasswordResetForm
+    from_email = 'foot@footexperts.fr'
+    success_url = 'password_reset_done.html'
+    template_name = 'password_reset_form.html'
 
 
+           
 
-
-    
