@@ -18,14 +18,16 @@
 
 
             {% else %}
-                <div class="contact"
-                <form action="" method="post" novalidate>
+                <div class="contact">
+                    <form action="" method="post">
                     
-                    {{ form.as_table }}
+                    {{ form.as_p }}
                     {% csrf_token %}
+                    <input type="submit" value="Envoyer" class="envoy">
                 </form>
+                
                 </div>
-                <input type="submit" value="Envoyer" class="envoy">
+               
                     
                 
             {% endif %}
