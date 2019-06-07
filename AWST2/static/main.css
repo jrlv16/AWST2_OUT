@@ -101,6 +101,8 @@ a.enlettre:hover, a.iconne:hover {
 }
 
 .band_part {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;    
 }
 .card-title, .text-card{
@@ -216,7 +218,7 @@ p.real {
 
 .bgimg-1 {
     background-image: url("bgimg-1.jpg");
-    min-height: 120%;
+    min-height: 100%;
 }
 
 .bgimg-1-2 {
@@ -269,58 +271,55 @@ p.real {
 /******** Media Queries ***************/
 /**************************************/
 
-@media (max-width: 767px) {
-   
+
+@media (max-width: 767px){
     .blockpost{
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
         text-align: center;
     }
-
     .enlettre{
         display: none;
     }
     .iconne{
         display: block;
     }
-
-    .my_form {
+    .my_form{
         max-width: none;
         margin: auto;
     }
-
-    .caption {
-        top: 15%;
+    .caption{
+        top: 20%;
     }
-
-    
-    .form_log {
+    .form_log{
         margin-top: 15%;
     }
-
-    .form-group {
+    .form-group{
         width: 90%;
         font-size: 0.75em;
-        
     }
-    #id_message {
-        
-        height:40%;
-        
+    #id_message{
+        height: 40%;
     }
-    .envoy {
+    .envoy{
         position: relative;
         margin: auto;
         display: block;
         top: -7em;
     }
-    #cv_video {
+    #cv_video{
         width: 320px;
     }
-    .text-card {
+    .text-card{
         display: none;
+    }
+    .band_part{
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 }
 
