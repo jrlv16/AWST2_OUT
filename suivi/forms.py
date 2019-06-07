@@ -73,7 +73,7 @@ class EntraineurChangeForm(UserChangeForm):
         model = Client
         fields = ('catu', 'username', 'first_name', 'last_name',
          'email', 'naissance', 'adresse', 'codepos',
-        )
+        'ville', 'telephone')
 """
 class SuivobsForm(forms.ModelForm):
     

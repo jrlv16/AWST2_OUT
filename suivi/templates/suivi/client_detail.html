@@ -24,7 +24,7 @@
                             <a href ="{% url "client_maj" client.id%} "><i class="fas fa-user-edit"></i></a>
                         {% endif %}
 
-                        {% if user.catu == ADMI %}
+                        {% if user.catu == "ADMI" %}
                         <a href ="{% url "client_del" client.id%} "><i class="far fa-trash-alt"></i></a>
                         {% endif %}
                         
@@ -54,6 +54,7 @@
                         <tr>  
                     </tbody>
                 </table>
+                {% if  user.catu == "FOOT" %}
                 <table class="table table-bordered my_form">
                     <th>Sport:</th>
                     <tbody>
@@ -69,6 +70,7 @@
                         </tr>
                         
                 </table>
+                {% endif %}
             </div>    
         </div>    
     </div>
