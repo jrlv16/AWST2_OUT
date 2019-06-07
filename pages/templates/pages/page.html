@@ -17,14 +17,22 @@
 <div class="bgimg-1">
 
         <div class="caption">
-        {% block content %}
+            <h1> {{ title }}</h1>
+        </div>
+</div>
+<div class="content">
+{% block content %}
         {% autoescape off %}
             {{ content }}  <!--ajoute le contenu de chaque page créée dans l'admin -->
         {% endautoescape %}
         {% endblock content %}
+</div>
+<div class="bgimg-1-2">
+        <div class="caption">
+        
+        <!-- <span class="border"></span> -->
         </div>
 </div>
-
 <div>    
 {% include "_cvvideo.html" %}
 </div>        
