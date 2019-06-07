@@ -7,9 +7,11 @@
 
 {% block sidenav %}
     {% for page in page_list %}
+        {% if page.permalink != "/mentions" %}
         <li class="nav-item">
             <a class="nav-link" href=" {{ page.permalink }} "> {{ page.title }} </a>
         </li>
+        {% endif %}
     {% endfor %}
 {% endblock sidenav %} 
 
@@ -17,14 +19,23 @@
 <div class="bgimg-1">
 
         <div class="caption">
-        {% block content %}
+            <h1> {{ title }}</h1>
+        </div>
+</div>
+<div class="content">
+{% block content %}
         {% autoescape off %}
             {{ content }}  <!--ajoute le contenu de chaque page créée dans l'admin -->
         {% endautoescape %}
         {% endblock content %}
+</div>
+{% if "Mentions" not in title %}
+<div class="bgimg-1-2">
+        <div class="caption">
+        
+        <!-- <span class="border"></span> -->
         </div>
 </div>
-
 <div>    
 {% include "_cvvideo.html" %}
 </div>        
@@ -44,6 +55,7 @@
 <iframe id="card" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2628.398499954318!2d2.3762298159047166!3d48.79337257928119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e673e98844e275%3A0x98c5febdb92d6239!2s12+Voie+Schumann%2C+94400+Vitry-sur-Seine!5e0!3m2!1sfr!2sfr!4v1559722271501!5m2!1sfr!2sfr"
  width="1200" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
 </div> 
+{% endif %}
 <div class="bgimg-3">
         <div class="caption">
         

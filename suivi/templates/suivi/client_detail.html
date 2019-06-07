@@ -24,7 +24,7 @@
                             <a href ="{% url "client_maj" client.id%} "><i class="fas fa-user-edit"></i></a>
                         {% endif %}
 
-                        {% if user.catu == ADMI %}
+                        {% if user.catu == "ADMI" %}
                         <a href ="{% url "client_del" client.id%} "><i class="far fa-trash-alt"></i></a>
                         {% endif %}
                         

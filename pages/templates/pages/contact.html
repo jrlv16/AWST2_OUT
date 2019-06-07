@@ -7,7 +7,7 @@
         </li>
 {% endblock sidenav %}
 
-{% block formulaire%} 
+{% block formulaire %} 
 <div class="bgimg-1">
     <div class="caption-contact">
         
@@ -18,14 +18,16 @@
 
 
             {% else %}
-                <div class="contact"
-                <form action="" method="post" novalidate>
+                <div class="contact">
+                    <form action="" method="post">
                     
-                    {{ form.as_table }}
+                    {{ form.as_p }}
                     {% csrf_token %}
+                    <input type="submit" value="Envoyer" class="envoy">
                 </form>
+                
                 </div>
-                <input type="submit" value="Envoyer" class="envoy">
+               
                     
                 
             {% endif %}
