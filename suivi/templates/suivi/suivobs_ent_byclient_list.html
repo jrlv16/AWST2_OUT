@@ -7,13 +7,14 @@
 
 {% block formulaire %}
     <div class="bgimg-4">
-      <div class="caption-contact"
-        <h1>{{ user.first_name }} {{ user.last_name }} Liste de suivi: </h1>
-        {% if suivobs_list%}
-        
+      <div class="caption-contact">
+        <h1>Liste de suivi: </h1>
+
+        {% if suivobslist %}
+            <p><a href =" {% url 'client_list' %}"><i class="fas fa-undo"></i></a></p>
         <ul>
 
-          {% for suiviclient in suivobs_list %}
+          {% for suiviclient in suivobslist %}
               
             <li>
               <a href="{% url 'suivi_detail' suiviclient.pk %}">{{suiviclient.suivobs_date}}</a> ({{ suiviclient.typsuivi }}) {{ suiviclient.joueur }}       
@@ -33,6 +34,7 @@
                 {% if page_obj.has_next %}
                     <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
                 {% endif %}
+                <p><a href="{{request.path }}?page=1"><i class="fas fa-undo"></i></a></p>
             </span>
         </div>
     {% endif %}

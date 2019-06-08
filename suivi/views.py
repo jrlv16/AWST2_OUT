@@ -124,33 +124,34 @@ class SuivobsDetailView(DetailView):
     fields = "__all__"
 
 class SuivobsList(LoginRequiredMixin, generic.ListView):
+    
     # on nomme l'objet qui sera renvoyé
     context_object_name = "suivobslist"
-    # requête qui récupère une liste d'objet
+    # requête qui récupère la liste de tous les objets "suivi"
     queryset = Suivobs.objects.all()
+    # modèle utilisé
     model = Suivobs
+    # template utilisé
     template_name = 'suivi/suivobs_list.html'
+    # liste des champs qui seront affichés
     fields =('suivobs.suivobs_date', 'suivobs.typsuivi', 'suivobs.joueur')
-    ordering = ('suivobs_date')
+    # instruction de rangement par ordre chronologique inverse
+    ordering = ('-suivobs_date')
+    # affichage de liste limité à 10 éléments par page 
     paginate_by = 10    
 
-class SuiviByClientListView(LoginRequiredMixin, generic.ListView):
-    model = Suivobs
-    paginate_by = 10
-    template_name = 'suivi/suivobs_byclient_list.html'
-    
+class SuiviByClientListView(SuivobsList):
+    # on filtre la liste sur l'id de l'utilisateur
     def get_queryset(self):
         return Suivobs.objects.filter(joueur = self.request.user).order_by('-suivobs_date')
 
-class SuiviByClientEntrListView(LoginRequiredMixin, generic.ListView):
+class SuiviByClientEntrListView(SuivobsList):
+    # on modifie le template d'affichage    
+    template_name = 'suivi/suivobs_ent_byclient_list.html' 
     
-    model = Suivobs
-    paginate_by = 10
-    template_name = 'suivi/suivobs_ent_byclient_list.html'
-    
+    # on modifie la requête pour filtrer sur l'id passée en argument
     def get_queryset(self):
-        # self.clientid = Client.id
-        return Suivobs.objects.filter(joueur = self.kwargs.get('pk'))
+        return Suivobs.objects.filter(joueur = self.kwargs.get('pk')).order_by('-suivobs_date')
     
 class MyPasswordReset(FormView):
     email_template_name='templates/registration/password_reset_email.html'

@@ -63,8 +63,7 @@ Liste clients
                     {% if page_obj.has_next %}
                         <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
                     {% endif %}
-                </span>&nbsp; &nbsp;
-                  <span class="retour"> <a href="{% url 'client_list'%}"><i class="fas fa-undo"></i></a>        
+                    <p><a href="{{request.path }}?page=1"><i class="fas fa-undo"></i></a></p>     
                 {% endif %}
             {% else %}
                 <p> il n'y a pas de clients dans la base </p>
