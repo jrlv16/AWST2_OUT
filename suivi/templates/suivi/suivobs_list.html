@@ -33,8 +33,10 @@
                     {% if page_obj.has_next %}
                         <a href="{{ request.path }}?page={{ page_obj.next_page_number }}"> suiv </a>
                     {% endif %}
-                </span>&nbsp; &nbsp;
-                  <span class="retour"> <a href="{% url 'tous_les_suivis'%}"><i class="fas fa-undo"></i></a>        
+
+                    <p><a href="{{request.path }}?page=1"><i class="fas fa-undo"></i></a></p>
+
+                   
           {% endif %}
                 </span>
             </div>
