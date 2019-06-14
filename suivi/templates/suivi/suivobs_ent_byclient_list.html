@@ -9,7 +9,7 @@
     <div class="bgimg-4">
       <div class="caption-contact">
         <h1>Liste de suivi: </h1>
-
+      {% if user.is_staff %}
         {% if suivobslist %}
             <p><a href =" {% url 'client_list' %}"><i class="fas fa-undo"></i></a></p>
 
@@ -24,7 +24,7 @@
           {% endfor %}
         </ul>
         {% if is_paginated %}
-        <div class="pagination">
+          <div class="pagination">
             <span class="page-links">
                 {% if page_obj.has_previous %}
                     <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
@@ -37,14 +37,17 @@
                 {% endif %}
                 <p><a href="{{request.path }}?page=1"><i class="fas fa-undo"></i></a></p>
             </span>
-        </div>
-    {% endif %}
-          
+          </div>
+        {% endif %}
+    
+  {% endif %} 
+  {% else %}
+  <p> Vous n'avez pas accès à cette page</p>
+  {% endif %}       
       </div>
     </div>
     
-    
-  {% else %}
-        <p>Vous n'avez pas encore fait l'objet de suivi par nos coaches.</p>
-  {% endif %}  
+  
+  
+  
 {% endblock %}
