@@ -125,9 +125,12 @@ class Suivobs(models.Model):
     suivobs_resultat = models.CharField( max_length=25, blank=True, null=True)  
     suivobs_but = models.IntegerField( blank=True, null=True)  
     suivobs_passe = models.IntegerField(blank=True, null=True)  
-    typsuivi = models.ForeignKey(Typsuivi,  blank=True, null=True, on_delete = models.SET_NULL)
-    coach = models.ForeignKey(Client, related_name="Entraineur", blank=True, null=True, on_delete = models.SET_NULL,limit_choices_to={'is_staff':True})
-    joueur = models.ForeignKey(Client, related_name="Joueur", blank=True, null=True, on_delete = models.SET_NULL,limit_choices_to={'is_staff':False})
+    typsuivi = models.ForeignKey(Typsuivi,  blank=True, null=True,
+     on_delete = models.SET_NULL)
+    coach = models.ForeignKey(Client, related_name="Entraineur", blank=True,
+     null=True, on_delete = models.SET_NULL,limit_choices_to={'is_staff':True})
+    joueur = models.ForeignKey(Client, related_name="Joueur", blank=True,
+     null=True, on_delete = models.SET_NULL,limit_choices_to={'is_staff':False})
     
     def __str__(self):
         suivi = {'date': self.suivobs_date, 'coach': self.coach, 'joueur': self.joueur}

@@ -8,9 +8,10 @@
 {% block formulaire %}
     <div class="bgimg-4">
       <div class="caption-contact">
+
         <p>{{ user.first_name }} {{ user.last_name }} Liste de suivi:</p>
 
-
+      {% if user.catu == "ADMI" %}
         {% if suivobslist %}
           <ul>
 
@@ -48,6 +49,9 @@
               <p>Vous n'avez pas encore fait l'objet de suivi par nos coaches.</p>
             {% endif %}
         {% endif %}
+      {% else %}
+      <p> Vous n'avez pas accès à cette page</p>  
+      {% endif %}  
       </div>
     </div>
 {% endblock %}
