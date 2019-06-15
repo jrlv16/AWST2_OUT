@@ -9,11 +9,11 @@
     <div class="bgimg-4">
       <div class="caption-contact">
         <h1>{{ user.first_name }} {{ user.last_name }} Liste de suivi: </h1>
-        {% if suivobs_list%}
+        {% if suivobslist%}
         
         <ul>
 
-          {% for suiviclient in suivobs_list %}
+          {% for suiviclient in suivobslist %}
               
             <li>
               <a href="{% url 'suivi_detail' suiviclient.pk %}">{{suiviclient.suivobs_date}}</a> ({{ suiviclient.typsuivi }}) {{ suiviclient.joueur }}       
@@ -37,11 +37,12 @@
         </div>
     {% endif %}
           
-      </div>
-    </div>
+      
     
     
   {% else %}
         <p>Vous n'avez pas encore fait l'objet de suivi par nos coaches.</p>
   {% endif %}  
+  </div>
+    </div>
 {% endblock %}

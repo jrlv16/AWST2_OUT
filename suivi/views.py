@@ -145,10 +145,12 @@ class SuivobsList(LoginRequiredMixin, generic.ListView):
     paginate_by = 10    
 
 class SuiviByClientListView(SuivobsList):
+    
+    template_name = 'suivi/suivobs_byclient_list.html'
 
     # on filtre la liste sur l'id de l'utilisateur
     def get_queryset(self):
-        return Suivobs.objects.filter(joueur = self.request.user).order_by('-suivobs_date')
+        return Suivobs.objects.filter(joueur = self.request.user.id).order_by('-suivobs_date')
 
 class SuiviByClientEntrListView(SuivobsList):
 
