@@ -18,7 +18,8 @@
           {% for suiviclient in suivobslist %}
               
             <li>
-              <a href="{% url 'suivi_detail' suiviclient.pk %}">{{suiviclient.suivobs_date}}</a> ({{ suiviclient.typsuivi }}) {{ suiviclient.joueur }}       
+              <a href="{% url 'suivi_detail' suiviclient.pk %}">{{suiviclient.suivobs_date}}</a> ({{ suiviclient.typsuivi }}) {{ suiviclient.joueur }}
+                 
             </li>
             
           {% endfor %}

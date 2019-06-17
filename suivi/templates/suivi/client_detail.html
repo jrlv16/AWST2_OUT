@@ -15,7 +15,7 @@
 {% block formulaire %}
     <div class="bgimg-4">
         <div class="caption">
-            <div>
+            <div >
                 <h1>Client: {{ client.last_name }} {{ client.first_name }} </h1>
                  {% if  user.is_staff%}
                         {% if client.id == user.id%}
@@ -32,7 +32,7 @@
                          <a cla="nav-item" href ="{% url 'clientclient_maj' user.id%} "><i class="fas fa-user-edit"></i></a>
                 {% endif %}
                 <br/>
-                <table class="table table-bordered my_form">
+                <table class="table table-bordered my_form detail_client">
                     <th>Coordonnées:</th>
                     <tbody>
                         <tr>
@@ -55,18 +55,27 @@
                     </tbody>
                 </table>
                 {% if  user.catu == "FOOT" %}
-                <table class="table table-bordered my_form">
+                <table class="table table-bordered my_form detail_client">
                     <th>Sport:</th>
                     <tbody>
                     
                         <tr>
-                        <th scope="row">Section:</th> <td>{{ client.sec }}</td> <th scope="row">Division:</th> <td>{{ client.division }} </td>
+                        <th scope="row">Section:</th> <td>{{ client.sec }}</td>
                         </tr>
                         <tr>
-                        <th scope="row">Poste:</th> <td>{{ client.pos }} </td><th scope="row">Pied faible:</th> <td>{{ client.pied }} </td>
+                        <th scope="row">Division:</th> <td>{{ client.division }} </td>
                         </tr>
                         <tr>
-                        <th scope="row">Club:</th> <td>{{ client.club }} </td><th scope="row">Ville:</th> <td>{{ client.club_ville }}</td>
+                        <th scope="row">Poste:</th> <td>{{ client.pos }} </td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Pied faible:</th> <td>{{ client.pied }} </td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Club:</th> <td>{{ client.club }} </td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Ville:</th> <td>{{ client.club_ville }}</td>
                         </tr>
                         
                 </table>

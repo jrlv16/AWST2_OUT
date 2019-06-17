@@ -239,6 +239,7 @@ p.real {
 .bgimg-4 {
     background-color: rgba(96, 201, 75, 0.884);
     min-height: 150%;
+    background-repeat: repeat;
         
 }
 
@@ -273,6 +274,9 @@ p.real {
 
 
 @media (max-width: 767px){
+    body{
+        font-size: 0.9em;
+    }
     .blockpost{
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -320,6 +324,9 @@ p.real {
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
                 flex-direction: column;
+    }
+    .detail_client{
+        font-size: 0.8em;
     }
 }
 
