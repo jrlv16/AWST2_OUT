@@ -143,7 +143,6 @@ class SuivobsList(LoginRequiredMixin, generic.ListView):
     queryset = Suivobs.objects.all()
 
     # modèle utilisé équivalent table de bdd
-
     model = Suivobs
     # template utilisé
     template_name = 'suivi/suivobs_list.html'
@@ -153,8 +152,8 @@ class SuivobsList(LoginRequiredMixin, generic.ListView):
 
     ordering = ('-suivobs_date')
 
-    # affichage de liste limité à 10 éléments par page 
-    paginate_by = 10    
+    # affichage de liste limité à 10 éléments par page
+    paginate_by = 10
 
 
 class SuiviByClientListView(SuivobsList):

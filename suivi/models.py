@@ -112,43 +112,42 @@ class Typsuivi(models.Model):
 
     def __str__(self):
         return self.typsuivi_nom
-    
+
 
 class Suivobs(models.Model):
-    
-    suivobs_date = models.DateField(auto_now = True)  
-    suivobs_theme = models.CharField( max_length=50, blank=True, null=True)  
+
+    suivobs_date = models.DateField(auto_now=True)  
+    suivobs_theme = models.CharField(max_length=50, blank=True, null=True)  
     suivobs_travail = models.TextField(max_length=50, blank=True, null=True)  
     suivobs_observation = models.TextField(max_length=500)  
     suivobs_axeprogres = models.TextField(max_length=50)  
-    suivobs_video = models.CharField( max_length=255, blank=True, null=True)  
-    suivobs_resultat = models.CharField( max_length=25, blank=True, null=True)  
-    suivobs_but = models.IntegerField( blank=True, null=True)  
+    suivobs_video = models.CharField(max_length=255, blank=True, null=True)  
+    suivobs_resultat = models.CharField(max_length=25, blank=True, null=True)  
+    suivobs_but = models.IntegerField(blank=True, null=True)  
     suivobs_passe = models.IntegerField(blank=True, null=True)  
     typsuivi = models.ForeignKey(Typsuivi,  blank=True, null=True,
-     on_delete = models.SET_NULL)
-    coach = models.ForeignKey(Client, related_name="Entraineur", blank=True,
-     null=True, on_delete = models.SET_NULL,limit_choices_to={'is_staff':True})
-    joueur = models.ForeignKey(Client, related_name="Joueur", blank=True,
-     null=True, on_delete = models.SET_NULL,limit_choices_to={'is_staff':False})
+                                 on_delete=models.SET_NULL)
+    coach = models.ForeignKey(Client,
+                              related_name="Entraineur", blank=True,
+                              null=True,
+                              on_delete=models.SET_NULL,
+                              limit_choices_to={'is_staff': True})
+    joueur = models.ForeignKey(Client,
+                               related_name="Joueur",
+                               blank=True,
+                               null=True,
+                               on_delete=models.SET_NULL,
+                               limit_choices_to={'is_staff': False})
+
+    def get_absolute_url(self):
+        # TODO changer pk en autre chose et créer l'url correspondante
+        #  pour detail suivi joueur
+        return reverse("suivi_detail", kwargs={"pk": self.id}) 
     
     def __str__(self):
         suivi = {'date': self.suivobs_date, 'coach': self.coach, 'joueur': self.joueur}
-        return suivi
-
-    def get_absolute_url(self):
-        # TODO changer pk en autre chose et créer l'url correspondante pour detail suivi joueur
-        return reverse("suivi_detail", kwargs={"pk": self.id})      
-    """
-    def GETSUIVIBYCLIENT(self, clientid):
-        lstclisuivi = []
-        s =""
-        # [s for s in Suivobs.objects.all() if s.id == clientid]
-        for s in Suivobs.objects.all():
-            if s.id == clientid:
-                lstclisuivi.append(s)
-        return lstclisuivi
-    """
+        return suivi     
+    
 
 class Concerne(models.Model):
         
