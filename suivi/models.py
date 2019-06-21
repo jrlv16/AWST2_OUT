@@ -143,16 +143,19 @@ class Suivobs(models.Model):
         # TODO changer pk en autre chose et créer l'url correspondante
         #  pour detail suivi joueur
         return reverse("suivi_detail", kwargs={"pk": self.id}) 
-    
+
     def __str__(self):
-        suivi = {'date': self.suivobs_date, 'coach': self.coach, 'joueur': self.joueur}
-        return suivi     
-    
+        suivi = {'date': self.suivobs_date, 'coach': self.coach,
+                 'joueur': self.joueur}
+        return suivi
+
 
 class Concerne(models.Model):
-        
-    suivobs = models.ForeignKey(Suivobs, blank = True, null = True, on_delete = models.SET_NULL)  
-    cli = models.ForeignKey(Client, blank = True, null = True, on_delete = models.SET_NULL ) 
+
+    suivobs = models.ForeignKey(Suivobs, blank=True,
+                                null=True, on_delete=models.SET_NULL)
+    cli = models.ForeignKey(Client, blank=True,
+                            null=True, on_delete=models.SET_NULL) 
 
     
 

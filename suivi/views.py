@@ -141,17 +141,14 @@ class SuivobsList(LoginRequiredMixin, generic.ListView):
     context_object_name = "suivobslist"
     # requête qui récupère la liste de tous les objets "suivi"
     queryset = Suivobs.objects.all()
-
     # modèle utilisé équivalent table de bdd
     model = Suivobs
     # template utilisé
     template_name = 'suivi/suivobs_list.html'
     # liste des champs qui seront affichés
-    fields =('suivobs.suivobs_date', 'suivobs.typsuivi', 'suivobs.joueur')
-    # instruction de rangement par ordre chronologique inverse
-
+    fields = ('suivobs.suivobs_date', 'suivobs.typsuivi', 'suivobs.joueur')
+    # instruction de classement par ordre chronologique inverse
     ordering = ('-suivobs_date')
-
     # affichage de liste limité à 10 éléments par page
     paginate_by = 10
 
