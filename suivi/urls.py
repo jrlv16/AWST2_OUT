@@ -23,4 +23,3 @@ urlpatterns =[
     path('suivi_tous', views.SuivobsList.as_view(), name ='tous_les_suivis'),
     path('client/password/', MyPasswordReset.as_view(), name='password'),
     ]
- 
